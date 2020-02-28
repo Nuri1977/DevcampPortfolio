@@ -1,0 +1,10 @@
+<h1>Portfolio Items</h1>
+
+<% @port_items.each do |item| %>
+  <%= image_tag item.thumb_image unless item.thumb_image.nil? %>
+  <h2><%= link_to item.title, portfolio_path(item)%></h2>
+  <p><%= item.subtitle%></p>
+  <p><%= item.body%></p>
+<hr>
+<hr>
+<% end %>
