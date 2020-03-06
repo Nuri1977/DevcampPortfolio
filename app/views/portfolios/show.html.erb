@@ -1,4 +1,4 @@
-
+<hr>
 <%= image_tag(@port_item.main_image) unless @port_item.main_image.nil? %>
 <h2>
   <strong>Title:</strong>
@@ -10,7 +10,20 @@
   <%= @port_item.body %>
 </p>
 
+Thechnologies used: 
+<% @port_item.technologies.each do |t| %>
+    <%= t.name %>
+<% end %>
+
+<hr>
+
 <%= link_to 'Edit', edit_portfolio_path(@port_item) %> |
 <%= link_to 'Back', portfolios_path %> |
 <%= link_to 'Delete', portfolio_path(@port_item.id), method: :delete,
                        data: {confirm: "Are you sure to delete?"} %> 
+
+<hr>
+<%= params.inspect %>
+<hr>
+
+<%= session.inspect %>
