@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Title</th>
+      <th>Created at</th>
       <th>Body</th>
       <th colspan="4"></th>
     </tr>
@@ -15,6 +16,7 @@
     <% @blogs.each do |blog| %>
       <tr>
         <td><%= blog.title %></td>
+        <td><%= distance_of_time_in_words(blog.created_at, Time.now) %> ago</td>
         <td><%= blog.body %></td>
         <td><%= link_to blog.status, toggle_status_blog_path(blog) %></td>
         <td><%= link_to 'Show', blog %></td>
