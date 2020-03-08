@@ -22,13 +22,9 @@ Thechnologies used:
 
 <hr>
 
-<%= link_to 'Edit', edit_portfolio_path(@port_item) %> |
+<%= link_to 'Edit', edit_portfolio_path(@port_item) if logged_in?(:siteadmin)%> |
 <%= link_to 'Back', portfolios_path %> |
 <%= link_to 'Delete', portfolio_path(@port_item.id), method: :delete,
-                       data: {confirm: "Are you sure to delete?"} %> 
+                       data: {confirm: "Are you sure to delete?"} if logged_in?(:siteadmin) %> 
 
 <hr>
-<%= params.inspect %>
-<hr>
-
-<%= session.inspect %>

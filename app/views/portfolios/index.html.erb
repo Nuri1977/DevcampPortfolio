@@ -1,5 +1,5 @@
 <h1>Portfolio Items</h1>
-<%= link_to "create new portfolio Item", new_portfolio_path %>
+<%= link_to "create new portfolio Item", new_portfolio_path if logged_in?(:siteadmin) %>
 <hr>
 <% @port_items.each do |item| %>
   <%= image_tag item.thumb_image unless item.thumb_image.nil? %>
