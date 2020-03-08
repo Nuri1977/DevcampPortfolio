@@ -16,9 +16,11 @@
 
   <body class="text-center">
     <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
-        <%= render 'shared/nav', location: 'top'%>
-        <%= login_helper %>
+        <%= render 'shared/nav'%>
+       
         <%= yield %>
+
+        <%= render 'shared/footer'%>
         <%= source_helper %>
     </div>
   </body>
