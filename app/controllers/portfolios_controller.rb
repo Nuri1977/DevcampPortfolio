@@ -1,4 +1,5 @@
 class PortfoliosController < ApplicationController
+  before_action :set_portfolio_item, only: [:show, :edit, :update, :destroy]
   layout 'portfolio'
   def index
     @port_items = Portfolio.all
@@ -19,15 +20,12 @@ class PortfoliosController < ApplicationController
   end
 
   def show
-    @port_item = Portfolio.find(params[:id])
   end
 
   def edit
-    @port_item = Portfolio.find(params[:id])
   end
 
   def update
-    @port_item = Portfolio.find(params[:id])
     if @port_item.update(portfolio_items_params)
       flash[:notice] = "Yor potrfolio item is created"
       redirect_to @port_item
@@ -38,7 +36,6 @@ class PortfoliosController < ApplicationController
   end
 
   def destroy
-    @port_item = Portfolio.find(params[:id])
     if @port_item.destroy
       flash[:notice] = "Yor potrfolio item was deleted successufully"
       redirect_to portfolios_path
@@ -54,6 +51,10 @@ class PortfoliosController < ApplicationController
                                       :body,
                                       technologies_atributes: [:name]
                                       )
+  end
+
+  def set_portfolio_item
+    @port_item = Portfolio.find(params[:id])
   end
 
 end
