@@ -1,25 +1,21 @@
-
-    <div class="col-md-8 blog-main pt-3">
-      <h4><%= link_to 'Whrite a New Blog', new_blog_path if logged_in?(:siteadmin) %></h4>
-      <div class="blog-post pt-3">
-        <% @blogs.each do |blog| %>
-          <h2 class="blog-post-title"><%= link_to blog.title, blog  %></h2>
-          <p class="blog-post-meta"><%= distance_of_time_in_words(blog.created_at, Time.now) %> ago</p>
-          <p class="blog-post-meta">
-            <%= link_to blog.status, toggle_status_blog_path(blog) if logged_in?(:siteadmin) %>   
-            <%= link_to 'Edit', edit_blog_path(blog) if logged_in?(:siteadmin) %>  
-            <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } if logged_in?(:siteadmin) %>
-          </p>         
-          <p><%= blog.body %></p>
-          <hr>
-        <% end %>
-      </div><!-- /.blog-post -->
-      
-      <nav class="blog-pagination">
-        <a class="btn btn-outline-primary" href="#">Older</a>
-        <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
-      </nav>
-
-    </div><!-- /.blog-main -->
+<div class="col-md-8 blog-main p-3">
+  <h4><%= link_to 'Whrite a New Blog', new_blog_path if logged_in?(:siteadmin) %></h4>
+  <%= paginate @blogs %>
+  <div class="blog-post pt-3">
+    <% @blogs.each do |blog| %>
+      <h2 class="blog-post-title"><%= link_to blog.title, blog  %></h2>
+      <p class="blog-post-meta"><%= distance_of_time_in_words(blog.created_at, Time.now) %> ago</p>
+      <p class="blog-post-meta">
+        <%= link_to blog.status, toggle_status_blog_path(blog) if logged_in?(:siteadmin) %>   
+        <%= link_to 'Edit', edit_blog_path(blog) if logged_in?(:siteadmin) %>  
+        <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } if logged_in?(:siteadmin) %>
+      </p>         
+      <p><%= blog.body %></p>
+      <hr>
+    <% end %>
+  </div><!-- /.blog-post -->
+  
+  <%= paginate @blogs %>
+</div><!-- /.blog-main -->
 
 
