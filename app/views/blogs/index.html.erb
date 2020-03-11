@@ -1,4 +1,4 @@
-<div class="col-md-8 blog-main p-3">
+<div class="col-md-8 blog-main pt-3">
   <h4><%= link_to 'Whrite a New Blog', new_blog_path if logged_in?(:siteadmin) %></h4>
   <%= paginate @blogs %>
   <div class="blog-post pt-3">
