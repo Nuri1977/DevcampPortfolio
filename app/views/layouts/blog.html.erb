@@ -16,13 +16,12 @@
 
   <body>
     <%= render 'shared/blog_navigation' %>
-    <%#= login_helper %>
-
-    <%= yield %>
-
-    <%#= render 'shared/nav', location: 'bottom'%>
-
+    <main role="main" class="container">
+      <div class="row">
+          <%= yield %>
+          <%= render 'shared/blog_sidebar' %>
+      </div><!-- /.row -->
+    </main><!-- /.container --> 
     <%#= source_helper %>
-
   </body>
 </html>
