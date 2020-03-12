@@ -18,4 +18,8 @@ module ApplicationHelper
     end
   end
 
+  def copyright_generator
+    DevcampViewTool::Renderer.copyright 'Nuri Lacka', 'All rights reserved'
+  end
+
 end
