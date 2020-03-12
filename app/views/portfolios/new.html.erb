@@ -1,5 +1,12 @@
-<h1>Add new portfolio item</h1>
+ <div class="container portfolio-form">
+  <div class="row">
+    <div class="col-md-12 p-2">  
+    
+      <h1 class="text-center p-2">Add new portfolio item</h1>
 
-<%= render 'form', obj: @port_item %>
+      <%= render 'form', obj: @port_item %>
+      <%= link_to 'Back to portfolios', portfolios_path, class: 'btn btn-primary' %>
 
-<%= link_to 'Back', portfolios_path %>
+    </div>
+  </div>
+</div>
