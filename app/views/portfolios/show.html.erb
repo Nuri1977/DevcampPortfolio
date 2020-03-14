@@ -2,7 +2,7 @@
   <div class="row">
 
     <div class="col-md-7">
-      <%= image_tag(@port_item.main_image) unless @port_item.main_image.nil? %>
+      <%= image_tag @port_item.main_image_url, width: '100%' %>
     </div>
 
     <div class="col-md-5">
