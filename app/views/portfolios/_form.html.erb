@@ -13,6 +13,7 @@
 
   <div class="row">
     <div class="col-md-6">
+
       <div class="form-group">
         <%= form.label :title %>
         <%= form.text_field :title, class: "form-control" %>
@@ -22,6 +23,17 @@
         <%= form.label :subtitle %>
         <%= form.text_field :subtitle, class: "form-control" %>
       </div>
+      <hr>
+      <div class="form-group">
+        <p>Upload <%= form.label :main_image %>: </p>
+        <%= form.file_field :main_image %>
+      </div>
+      <hr>
+      <div class="form-group mt-0">
+        <p>Upload <%= form.label :thumb_image %>: </p>
+        <%= form.file_field :thumb_image %>
+      </div>
+
     </div>
 
     <div class="col-md-6">
@@ -30,21 +42,7 @@
         <%= form.text_area :body, class: "form-control", rows: 15 %>
       </div>
     </div>
-
-    <div class="col-md-6">
-      <div class="form-groupeld">
-        <%= form.label :main_image %>
-        <%= form.file_field :main_image %>
-      </div>
-    </div>
-
-    <div class="col-md-6">
-      <div class="form-group">
-        <%= form.label :thumb_image %>
-        <%= form.file_field :thumb_image %>
-      </div>
-    </div>
-    
+  
     <div class="col-md-12">
       <div class="form-group">
         <%= form.submit "Submit", class: "btn btn-primary btn-block" %>
