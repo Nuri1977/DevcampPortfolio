@@ -20,9 +20,10 @@
         <% @port_items.each do |item| %>
           <div class="col-md-4">
             <div class="card mb-4 box-shadow">
-               <%= image_tag item.thumb_image unless item.thumb_image.nil? %> 
+               <%= image_tag item.thumb_image_url, width: '100%' %> 
               <div class="card-body">
               <span><%= link_to item.title, portfolio_path(item)%><span> <%= item.subtitle%>
+              <%= link_to "delete", portfolio_path(item), method: :delete %>
               </div>
             </div>
           </div>
