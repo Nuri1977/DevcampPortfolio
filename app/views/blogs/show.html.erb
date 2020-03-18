@@ -9,5 +9,19 @@
     </p>         
     <p><%= @blog.body %></p>
     <hr>
+    <% if current_user.is_a? User %>
+      <%= form_for @comment, url: '#' do |f| %>
+        <div class="form-group">
+          <%= f.label :content %>
+          <%= f.text_area :content, class: 'form-control'%>
+        </div>
+        <div class="form-group">
+          <%= f.submit 'Post Comment', class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+    <% end %>
+    
+    <%= render 'comments/comments'%>
+
   </div><!-- /.blog-post -->
 </div><!-- /.blog-main -->
