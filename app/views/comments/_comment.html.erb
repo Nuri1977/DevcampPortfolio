@@ -2,14 +2,12 @@
   <div class="card">
     <div class="card-block">
       <div class="row">
-      <% @blog.comments.each do |comment| %>
         <div class="col-md-1">
-          <%= comment.user_id %>
         </div>
+
         <div class="col-md-11">
           <%= comment.content %>
         </div>
-      <% end %>
       </div>
     </div>
   </div>
