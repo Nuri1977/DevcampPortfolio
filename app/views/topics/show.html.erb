@@ -1,10 +1,9 @@
 <div class="col-md-8 blog-main pt-3">
-  <h4><%= link_to 'Whrite a New Blog', new_blog_path if logged_in?(:siteadmin) %></h4>
-  <h4 class= "pb=3"><%= link_to 'List Topics', topics_path if logged_in?(:siteadmin) %></h4>
   <%= paginate @blogs %>
   <div class="blog-post pt-3">
+  <h1 class="blog-post-title pb-3">Topic: <%= @topic.title  %></h1>
     <% @blogs.each do |blog| %>
-      <h2 class="blog-post-title"><%= link_to blog.title, blog  %></h2>
+      <h2 class="blog-post-meta"><%= link_to blog.title, blog  %></h2>
       <p class="blog-post-meta"><%= distance_of_time_in_words(blog.created_at, Time.now) %> ago</p>
       <p class="blog-post-meta">
         <%= link_to blog.status, toggle_status_blog_path(blog) if logged_in?(:siteadmin) %>   
@@ -18,5 +17,3 @@
   
   <%= paginate @blogs %>
 </div><!-- /.blog-main -->
-
-

@@ -1,0 +1,17 @@
+
+<div class="col-md-8 blog-main pt-3">
+  <h1 class="blog-post"> LIST OF TOPICS </h1>
+  <% if logged_in?(:siteadmin) %>
+    <%= link_to 'Add a new Topic', new_topic_path , class: "btn btn-primary" %>
+  <% end %>
+  <div class="blog-post pt-3">
+    <% @topics.each do |topic| %>
+      <h2 class="blog-post-title"><%= link_to topic.title, topic  %></h2>
+        <% if logged_in?(:siteadmin) %>
+          <%= link_to 'Edit', edit_topic_path(topic) , class: "btn btn-primary" %>  
+          <%= link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-danger"%>
+        <% end %>
+      </p>         
+    <% end %>
+  </div><!-- /.blog-post -->
+</div><!-- /.blog-main -->
