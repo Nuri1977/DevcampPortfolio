@@ -1,7 +1,8 @@
 <div class="col-md-8 blog-main pt-3">
   <div class="blog-post pt-3">
     <h2 class="blog-post-title"><%= @blog.title %></h2>
-    <p class="blog-post-meta"><%= distance_of_time_in_words(@blog.created_at, Time.now) %> ago</p>
+    <h4>Topic: <%= @blog.topic.title %></h4>
+    <p class="blog-post-meta">Updated <%= distance_of_time_in_words(@blog.created_at, Time.now) %> ago</p>
     <p class="blog-post-meta">
       <%= link_to @blog.status, toggle_status_blog_path(@blog) if logged_in?(:siteadmin) %>   
       <%= link_to 'Edit', edit_blog_path(@blog) if logged_in?(:siteadmin) %>  
