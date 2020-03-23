@@ -1,4 +1,5 @@
 class TopicsController < ApplicationController
+  before_action :set_sidebar_topics, except: [:update, :create, :destroy]
   access all: [:show, :index], user: {except: [:destroy, :new, :create, :update]}, siteadmin: :all
   layout "blog"
 
@@ -60,6 +61,10 @@ class TopicsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def topic_params
       params.require(:topic).permit(:title)
+    end
+
+    def set_sidebar_topics
+      @side_bar_topics = Topic.with_blogs
     end
 
 end
