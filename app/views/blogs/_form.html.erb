@@ -22,6 +22,15 @@
   </div>
 
   <div class="form-group">
+    <%= form.radio_button :status, 'draft' %>
+    <%= form.label :status, 'draft', class: "mr-3" %>
+
+    <%= form.radio_button :status, 'published' %>
+    <%= form.label :status, 'published' %>
+
+  </div>
+
+  <div class="form-group">
     <%= form.submit "Enter", class: "btn btn-primary" %>
   </div>
 <% end %>
