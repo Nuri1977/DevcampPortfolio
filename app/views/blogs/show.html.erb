@@ -8,7 +8,7 @@
       <%= link_to 'Edit', edit_blog_path(@blog) if logged_in?(:siteadmin) %>  |  
       <%= link_to 'Destroy', @blog, method: :delete, data: { confirm: 'Are you sure?' } if logged_in?(:siteadmin) %>
     </p>         
-    <p><%= @blog.body %></p>
+    <p><%= markdown @blog.body %></p>
     <hr>
     <% if current_user.is_a? User %>
       <%= form_for @comment, url: '#' do |f| %>
