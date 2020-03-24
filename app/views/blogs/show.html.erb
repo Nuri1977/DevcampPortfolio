@@ -1,13 +1,22 @@
-<div class="col-md-8 blog-main pt-3">
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <%= link_to "Home", root_path, class: "breadcrumb-item" %>
+    <%= link_to "Blogs", blogs_path, class: "breadcrumb-item" %>
+    <%= link_to @blog.topic.title, topic_path(@blog.topic), class: "breadcrumb-item" %>
+    <span class="breadcrumb-item active" aria-current="page"><%= @blog.title %></span>
+  </ol>
+</nav>
+
+<div class="col-md-8 blog-main pt-1">
   <div class="blog-post pt-3">
     <h2 class="blog-post-title"><%= @blog.title %></h2>
-    <h4>Topic: <%= @blog.topic.title %></h4>
-    <p class="blog-post-meta">Updated <%= distance_of_time_in_words(@blog.created_at, Time.now) %> ago</p>
-    <p class="blog-post-meta">
-      <p>Status: <%= @blog.status%></p>
-      <%= link_to 'Edit', edit_blog_path(@blog) if logged_in?(:siteadmin) %>  |  
-      <%= link_to 'Destroy', @blog, method: :delete, data: { confirm: 'Are you sure?' } if logged_in?(:siteadmin) %>
-    </p>         
+    <span class="blog-post-meta mr-4">Updated <%= distance_of_time_in_words(@blog.created_at, Time.now) %> ago</span>
+    <% if logged_in?(:siteadmin) %>
+      <span class="mr-4">Status: <%= @blog.status%>  </span> 
+      <span class="mr-4"><i class="fa fa-edit pr-1"></i><%= link_to "Edit", edit_blog_path(@blog) %> </span>     
+      <span class="mr-4"><i class="fa fa-trash pr-1"></i><%= link_to 'Delete', @blog, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+    <% end %>
+    <hr>
     <p><%= markdown @blog.body %></p>
     <hr>
     <% if current_user.is_a? User %>
