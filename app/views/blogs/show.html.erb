@@ -1,13 +1,17 @@
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <%= link_to "Home", root_path, class: "breadcrumb-item" %>
-    <%= link_to "Blogs", blogs_path, class: "breadcrumb-item" %>
-    <%= link_to @blog.topic.title, topic_path(@blog.topic), class: "breadcrumb-item" %>
-    <span class="breadcrumb-item active" aria-current="page"><%= @blog.title %></span>
-  </ol>
+
 </nav>
 
 <div class="col-md-8 blog-main pt-1">
+
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <%= link_to "Home", root_path, class: "breadcrumb-item" %>
+      <%= link_to "Blogs", blogs_path, class: "breadcrumb-item" %>
+      <%= link_to @blog.topic.title, topic_path(@blog.topic), class: "breadcrumb-item" %>
+      <span class="breadcrumb-item active" aria-current="page"><%= @blog.title %></span>
+    </ol>
+  </nav>
+
   <div class="blog-post pt-3">
     <h2 class="blog-post-title"><%= @blog.title %></h2>
     <span class="blog-post-meta mr-4">Updated <%= distance_of_time_in_words(@blog.created_at, Time.now) %> ago</span>

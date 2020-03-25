@@ -14,7 +14,7 @@
 //= require popper
 //= require rails-ujs
 //= require cable
+//= require bootstrap-sprockets
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-//= require bootstrap-sprockets
