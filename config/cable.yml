@@ -6,5 +6,4 @@ test:
 
 production:
   adapter: redis
-  url: <%= ENV.fetch("redis://rediscloud:j8CSejBlJfiJcThFqV5vMtv9wjG5M2xd@redis-19894.c10.us-east-1-4.ec2.cloud.redislabs.com:19894") { "redis://localhost:6379/1" } %>
-  channel_prefix: DevcampPortfolio_production
+  url: <%= ENV.fetch('ACTION_CABLE_REDIS_URL', 'redis://127.0.0.1:6380/1') %>
